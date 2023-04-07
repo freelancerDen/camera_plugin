@@ -317,12 +317,39 @@ footer > p {
 
 .share-btn { 
   display: flex;
-  width: 25px;
+  width: 20px;
   height: 25px;
   align-items: center;
   justify-content: center;
   margin: 5px 0;
+  cursor: pointer;
 }
+
+[data-name="facebook"] {
+  background: url(./images/icon_fb.svg) no-repeat center;
+  background-size: contain;
+}
+
+[data-name="viber"] {
+  background: url(./images/icon_viber.svg) no-repeat center;
+  background-size: contain;
+}
+
+[data-name="vk"] {
+  background: url(./images/icon_vk.svg) no-repeat center;
+  background-size: contain;
+}
+
+[data-name="telegram"] {
+  background: url(./images/icon_telegram.svg) no-repeat center;
+  background-size: contain;
+}
+
+[data-name="twitter"] {
+  background: url(./images/icon_twitter.svg) no-repeat center;
+  background-size: contain;
+}
+
 .share-dropdown {
   display: flex;
   width: 25px;

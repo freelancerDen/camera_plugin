@@ -13,9 +13,11 @@ app.get('/', function (req, res) {
 
 app.post('/img/removebg', (req, res) => {
     let data = req.body;
-    data.image = 'http://127.0.0.1:5500/src/assets/img/dog_in_mountain_done.png';
-    res.send('Data Received: ' + JSON.stringify(data));
-   
+    let getDomain = data.image.split('/');
+    data.image = `${getDomain[0]}//${getDomain[2]}/images/dog_in_mountain_done.png`;
+    res.json(data);
 })
+
+
 
 app.listen(3000);

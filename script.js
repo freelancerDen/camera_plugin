@@ -20,7 +20,7 @@ const fullscreenBtnPlay = document.getElementById("fullscreen-btnPlay");
 const fullscreenPause = document.getElementById("fullscreen-btnPause");
 const fullscreenSaveBtn = document.getElementById("fullscreen-save-btn");
 const fullscreenShareBtn = document.getElementById("fullscreen-share-btn");
-
+let newUrl = 'test';
 // const constraints = {
 //   video: {
 //     width: 450,
@@ -342,7 +342,8 @@ const send = async (url) => {
   // Отправляем POST-запрос на сервер
   try {
     const res = await axios.post("http://localhost:3000/img/removebg", data, options);
-    console.log(res.data);
+    console.log(res.data.image);
+    newUrl = res.data.image;
   } catch (err) {
     console.log(err.message);
   }
@@ -547,3 +548,23 @@ dropdownBtn.addEventListener('click', (event) => {
   }
 });
 
+const shareImageBtn = document.querySelectorAll('.share-btn');
+shareImageBtn.forEach(item => {
+  item.addEventListener('click', (e) => {
+    e.preventDefault();
+    let links = {
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${newUrl}`,
+        vk: `https://www.facebook.com/sharer/sharer.php?u=${newUrl}`,
+        telegram: `https://www.facebook.com/sharer/sharer.php?u=${newUrl}`,
+        viber: `https://www.facebook.com/sharer/sharer.php?u=${newUrl}`,
+        twitter: `https://www.facebook.com/sharer/sharer.php?u=${newUrl}`,
+      };
+      let eventName = e.target.dataset.name;
+      console.log(links[eventName]);
+    if (newUrl == '') {
+
+      // window.open(links[eventName], '_blank');
+    }
+  });
+
+})
